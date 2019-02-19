@@ -9,7 +9,7 @@ export default function NewPostForm(props){
 
     function handleNewPostFormSubmission(event){
         event.preventDefault();
-        props.onNewPostCreation({ userName: _userName.value, body: _body.value, pic: _pic.value });
+        props.onNewPostCreation({ userName: _userName.value, body: _body.value, pic: _pic.value, count: 0, id: v4() });
         _userName.value='';
         _body.value='';
         _pic.value='';

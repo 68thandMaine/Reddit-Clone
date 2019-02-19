@@ -26,8 +26,10 @@ export default class FormControl extends React.Component{
 
       return(
         <div style={wrapperStyles}>
-          <PostBoat allPosts={this.props.postList}/>
-          
+          <PostBoat
+
+            allPosts={this.props.postList}/>
+
         </div>
       );
     }

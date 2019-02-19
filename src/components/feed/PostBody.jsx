@@ -9,9 +9,9 @@ export default function PostBody(props){
 
   return(
     <div>
-      <h1>{props.userName}</h1>
+      <h1>User name: {props.userName}</h1>
       <hr />
-      <h1>{props.body}</h1>
+      <h1>Content: {props.body}</h1>
       <hr />
       <h1>picture url: {props.pic}</h1>
       <hr />
