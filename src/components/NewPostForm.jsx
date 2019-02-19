@@ -9,26 +9,26 @@ export default function NewPostForm(props){
 
   function handleNewPostFormSubmission(event){
     event.preventDefault();
-    console.log("userName: " + _userName.value,);
-    console.log("body: " + _body.value);
-    console.log("picture url: " + _pic.value);
-
+    props.onNewPostCreation({ userName: _userName.value, body: _body.value, pic: _pic.value })
     _userName.value='';
     _body.value='';
     _pic.value=''
   }
 
   const wrapperStyles={
-
+    border: 'solid black 1px'
   }
   const nameStyles={
-
+    border: 'solid black 1px'
   }
   const bodyStyles={
-
+    border: 'solid black 1px'
   }
   const picStyles={
-
+    border: 'solid black 1px'
+  }
+  const buttonStyles={
+    border: 'solid black 1px'
   }
   return(
     <div style={wrapperStyles}>
@@ -36,24 +36,25 @@ export default function NewPostForm(props){
           <div style={nameStyles}>
             <label>User Name: </label>
             <input
-              type: 'text'
-              id: 'userName'
+              type= 'text'
+              id= 'userName'
               ref={(input) => { _userName = input}} />
           </div>
           <div style={bodyStyles}>
             <label>Post</label>
             <input
-              type: 'text'
-              id: 'body'
+              type= 'text'
+              id= 'body'
               ref={(input) => { _body = input }} />
           </div>
           <div style={picStyles}>
             <label>Picture URL</label>
             <input
-              type: 'text'
-              id: 'pic'
+              type= 'text'
+              id= 'pic'
               ref={(input) => {_pic = input }} />
           </div>
+          <button style={buttonStyles} type="submit">Submit</button>
         </form>
     </div>
   );
