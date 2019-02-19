@@ -21,7 +21,6 @@ export default function PostBoat(props){
     height: '10%',
     width: '10%',
     textAlign: 'center',
-
   }
   const countStyles={
     border: 'solid black 1px',
@@ -33,10 +32,15 @@ export default function PostBoat(props){
   }
   function upClick(post){
     console.log('upvote clicked')
-    console.log( post.count)
+    post.count ++;
+    console.log( post.count )
+    props.onVoteChange();
   }
-  function downClick(){
+  function downClick(post){
     console.log('downvote clicked')
+    post.count --;
+    console.log(post.count)
+    props.onVoteChange();
   }
 
   return(
@@ -54,12 +58,13 @@ export default function PostBoat(props){
           pic={post.pic}
           key={post.id} />
       </div>
-      <div style={voteStyles} onClick={downClick}>DownVote</div>
+      <div style={voteStyles} onClick={()=>downClick(post)}>DownVote</div>
     </div>
     )}
     </div>
   );
 }
 PostBoat.propTypes= {
-  allPosts: PropTypes.array
+  allPosts: PropTypes.array,
+  onVoteChange: PropTypes.func
 };

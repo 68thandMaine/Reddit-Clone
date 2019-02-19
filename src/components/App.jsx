@@ -12,6 +12,7 @@ export default class App extends React.Component {
             masterPostList: []
         };
         this.handleAddingNewPostToList= this.handleAddingNewPostToList.bind(this);
+        this.handleSortingMasterPostList= this.handleSortingMasterPostList.bind(this);
     }
 
 
@@ -19,6 +20,13 @@ export default class App extends React.Component {
         let newMasterPostList = this.state.masterPostList.slice();
         newMasterPostList.push(newPost);
         this.setState({ masterPostList: newMasterPostList });
+    }
+
+    handleSortingMasterPostList(){
+
+      let orderedPostList = this.state.masterPostList.slice();
+      orderedPostList.sort(function(a,b){return b.count - a.count });
+      this.setState({ masterPostList: orderedPostList });
     }
 
 
@@ -34,7 +42,7 @@ export default class App extends React.Component {
             <div style={wrapperStyles}>
                 <Header />
                 <Switch>
-                    <Route exact path ='/' render={() => <FeedControl postList={this.state.masterPostList} />} />
+                    <Route exact path ='/' render={() => <FeedControl postList={this.state.masterPostList} onVoteChange={this.handleSortingMasterPostList} />} />
                     <Route path='/newpost' render={() =>
                         <NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />} />
                 </Switch>
