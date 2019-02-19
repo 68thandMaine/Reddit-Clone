@@ -23,7 +23,7 @@ export default class App extends React.Component {
     }
 
     handleSortingMasterPostList(){
-
+      console.log(this.state.masterPostList)
       let orderedPostList = this.state.masterPostList.slice();
       orderedPostList.sort(function(a,b){return b.count - a.count });
       this.setState({ masterPostList: orderedPostList });
