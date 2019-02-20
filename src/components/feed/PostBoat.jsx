@@ -49,7 +49,7 @@ render(){
     display: 'inline-block',
     position: 'relative',
     top: '230px',
-    left: '5%',
+    left: '1%',
     zIndex: '1',
     fontSize: '25px',
     fontFamily: 'BentonSans, sans-serif',
@@ -64,7 +64,7 @@ render(){
 
         <div style={voteStyles} onClick={()=>this.upClick(post)}>UpVote</div>
 
-        <div style={countStyles}>{post.count}</div>
+        <div style={countStyles}>Likes: {post.count}</div>
       <div style={postContentStyles}>
         <PostBody
           userName={post.userName}
