@@ -10,7 +10,7 @@ export default class PostBoat extends React.Component{
   }
 
    upClick(post){
-    console.log(post)
+    console.log("upclick " + post)
     post.count ++;
     console.log( post.count )
     this.props.onVoteChange();
@@ -25,7 +25,9 @@ export default class PostBoat extends React.Component{
 render(){
   const wrapperStyles ={
     border:'solid black 1px',
-    padding: '10px'
+    padding: '10px',
+    marginBottom: '10px',
+    height: 'auto'
   }
   const postContentStyles={
     border: 'solid red 1px',
@@ -43,18 +45,21 @@ render(){
     textAlign: 'center',
   }
   const countStyles={
-    border: 'solid black 1px',
+
     display: 'inline-block',
     position: 'relative',
-    top: '140px',
+    top: '230px',
     left: '5%',
     zIndex: '1',
+    fontSize: '25px',
+    fontFamily: 'BentonSans, sans-serif',
   }
 
 
   return(
     <div>
     {this.props.allPosts.map((post)=>
+
       <div style={wrapperStyles}>
 
         <div style={voteStyles} onClick={()=>this.upClick(post)}>UpVote</div>

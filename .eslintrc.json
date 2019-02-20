@@ -20,8 +20,7 @@
         "react/no-unused-state": 2,
         "react/require-render-return": 2,
         "react/jsx-handler-names": 2,
-        "react/jsx-space-before-closing": ['off', 'always'
-        ],
+
         "react/no-typos": 2,
         "indent": [
             "error",
