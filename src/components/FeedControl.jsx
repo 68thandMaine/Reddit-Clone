@@ -27,7 +27,7 @@ export default class FormControl extends React.Component{
       return(
         <div style={wrapperStyles}>
           <PostBoat
-            onVoteChange={this.props.onVoteChange}
+
             allPosts={this.props.postList}/>
 
         </div>

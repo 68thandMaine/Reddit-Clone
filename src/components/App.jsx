@@ -1,37 +1,21 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 
 import Header from './Header';
 import NewPostForm from './NewPostForm';
-import FeedControl from './feed/FeedControl';
+import PostBoat from './PostBoat';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
-export default class App extends React.Component {
+class App extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            masterPostList: []
-        };
-        this.handleAddingNewPostToList= this.handleAddingNewPostToList.bind(this);
-        this.handleSortingMasterPostList= this.handleSortingMasterPostList.bind(this);
+        this.state = {};
     }
 
+    // handleAddingNewPostToList(newPost){}
 
-    handleAddingNewPostToList(newPost){
-        let newMasterPostList = this.state.masterPostList.slice();
-        newMasterPostList.push(newPost);
-        this.setState({ masterPostList: newMasterPostList });
-    }
-
-    handleSortingMasterPostList(){
-      console.log(this.state.masterPostList)
-      let orderedPostList = this.state.masterPostList.slice();
-      orderedPostList.sort(function(a,b){return b.count - a.count });
-      this.setState({ masterPostList: orderedPostList });
-    }
-
-
-
-
+    // handleSortingMasterPostList(){}
 
     render(){
         const wrapperStyles={
@@ -42,11 +26,23 @@ export default class App extends React.Component {
             <div style={wrapperStyles}>
                 <Header />
                 <Switch>
-                    <Route exact path ='/' render={() => <FeedControl postList={this.state.masterPostList} onVoteChange={this.handleSortingMasterPostList} />} />
+                    <Route exact path ='/' render={() => <PostBoat allPosts={this.props.masterPostList}  />} />
                     <Route path='/newpost' render={() =>
-                        <NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />} />
+                        <NewPostForm />} />
                 </Switch>
             </div>
         );
     }
 }
+
+App.propTypes = {
+  masterPostList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+    return {
+        masterPostList: state
+    };
+};
+
+export default withRouter(connect(mapStateToProps)(App));

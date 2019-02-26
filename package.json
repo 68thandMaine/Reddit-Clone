@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint src/** src/**/**; exit 0",
     "lint-fix": "eslint src/** src/**/** --fix ; exit 0",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest; exit 0",
     "start": "webpack-dev-server --port 8080 --host 0.0.0.0"
   },
   "author": "",
@@ -14,10 +14,13 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
+    "moment": "^2.18.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-redux": "^5.0.6",
     "react-router-dom": "^4.0.0",
+    "redux": "^3.7.2",
     "react-typing-animation": "^1.6.2",
     "styled-jsx": "^3.2.1"
   },
@@ -32,6 +35,7 @@
     "eslint-plugin-react": "^7.12.4",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.29.0",
+    "jest": "^20.0.3",
     "react-hot-loader": "^3.0.0-beta.7",
     "url-loader": "^0.6.2",
     "webpack": "^3.4.0",
