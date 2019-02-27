@@ -7,6 +7,8 @@ import { createStore } from 'redux';
 import postListReducer from './reducers/post-list-reducer';
 import { Provider } from 'react-redux';
 
+
+
 const memeCentre = createStore(postListReducer);
 let unsubscribe = memeCentre.subscribe(() =>
     console.log(memeCentre.getState())

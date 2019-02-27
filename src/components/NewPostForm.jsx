@@ -1,8 +1,8 @@
 import React from 'react';
-
+import Moment from 'moment';
 import { connect } from 'react-redux';
 import { v4 } from 'uuid';
-
+import PropTypes from 'prop-types';
 
 function NewPostForm(props){
     let _userName = null;
@@ -20,7 +20,7 @@ function NewPostForm(props){
             body: _body.value,
             pic: _pic.value,
             votes: 0,
-
+            timeStamp: new Moment
         };
         dispatch(action);
         _userName.value='';

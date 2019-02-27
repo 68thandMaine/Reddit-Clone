@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import PostBody from './PostBody'
+import PostBody from './PostBody';
+import Moment from 'moment'
 
 export default function PostBoat(props){
   const wrapperStyles ={
@@ -37,6 +38,8 @@ export default function PostBoat(props){
             userName={post.userName}
             body={post.body}
             pic={post.pic}
+            timeStamp = {post.timeStamp}
+            id = {postId}
             key={postId} />
         )
       })}
@@ -50,7 +53,8 @@ PostBoat.propTypes= {
       userName: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       pic: PropTypes.string.isRequired,
-      votes: PropTypes.number.isRequired
+      votes: PropTypes.number.isRequired,
+      timeStamp: PropTypes.instanceOf(Moment).isRequired
     }).isRequired
   ).isRequired
 };
